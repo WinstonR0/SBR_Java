@@ -48,8 +48,8 @@ public class Filtro implements Filter{
         boolean validarRutaLogin = ((rutaSolicitud.equals(raizSolicitud + "/")) || (rutaSolicitud.equals(raizSolicitud + "/login.xhtml"))  );
         
         // 3. que se carge el contenido estatico (CSS)
-        boolean validarContenidoEstatico = rutaSolicitud.contains("/resources/css/style.css");
-        
+       boolean validarContenidoEstatico = rutaSolicitud.startsWith(raizSolicitud + "/javax.faces.resource");
+
         if(validarSesion || validarRutaLogin || validarContenidoEstatico){
             chain.doFilter(request, response);
         }else{

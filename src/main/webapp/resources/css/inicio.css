@@ -1,0 +1,48 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 2 jun 2025, 20:29:54
+    Author     : rosdri
+*/
+
+body{
+    background-color: #fae5d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo{
+    border: 1px solid black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+    background-color: #f7f9f9;
+    border-radius: 10px;
+}
+
+.botoncito{
+    border: 1px solid black;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #935116;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.botoncito:hover{
+    background-color: #ca6f1e;
+    color: black;
+}

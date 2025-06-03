@@ -56,5 +56,19 @@ public class login implements Serializable {
             return null;
         }
     }
+    
+    // Método para cerrar la sesión del usuario actual
+    public String cerrarSesion() {
+    
+    // Obtiene el contexto actual de JSF, que contiene toda la info de la petición web en curso
+    FacesContext context = FacesContext.getCurrentInstance();
+    
+    // Invalida (destruye) la sesión activa del usuario esto elimina todos los atributos guardados como "usuario"
+    context.getExternalContext().invalidateSession();
+    
+    // Redirecciona al archivo login.xhtml. El "faces-redirect=true" indica que se debe hacer una redirección real
+    return "login.xhtml?faces-redirect=true";
+    }
+
 }
     
