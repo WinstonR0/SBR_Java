@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+   
+
+    <body>
+
+        <ui:composition template="./../users.xhtml">
+
+            <ui:define name="content">
+                <h:form><h:commandButton value="Registrar usuarios" action="#{usersController.crearP1()}" /></h:form>
+                <table id="t-all" class="jsf-data-table display nowrap" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Usuario ID</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Documento</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Fecha de registro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <ui:repeat value="#{usersController.obtenerRegistros()}" var="item" >
+                        
+                        <tr>
+                            <td>#{item.id}</td>
+                            <td>#{item.nombres}</td>
+                            <td>#{item.apellidos}</td>
+                            <td>#{item.documento}</td>
+                            <td>#{item.telefono}</td>
+                            <td>#{item.correo}</td>
+                            <td>#{item.rol}</td>
+                            <td>#{item.fechaRegistro}</td>
+                            
+                        </tr>
+                            
+                        </ui:repeat>
+                        
+                    </tbody>
+                </table>
+                
+                
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

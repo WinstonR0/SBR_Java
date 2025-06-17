@@ -45,10 +45,12 @@ public class login implements Serializable {
     }
     
     public String iniciarSesion(){
+        
+        //user = this.ufl.iniciarSesion(usuario,contrasena);
         if (usuario.equals("Admin") && contrasena.equals("123")) {
             HttpSession sesion = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true); // El true indica que se crea una nueva sesion
             sesion.setAttribute("usuario",usuario);
-            return "inicio.xhtml?faces-redirect=true";
+            return "/views/index.xhtml?faces-redirect=true";
     }else {
             FacesContext fc = FacesContext.getCurrentInstance();
             FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario y/o contrasena incorrecta", null);
