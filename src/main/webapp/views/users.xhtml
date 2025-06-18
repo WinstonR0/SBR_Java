@@ -26,13 +26,13 @@
         
 
         <div id="top">
-            <h1>Sistemas de registros SBR</h1>
-            <h2>Usuarios: #{login.usuario}</h2>
+            <h1>Sistema de Registro SBR</h1>
+            <h2>Usuario: #{login.usuario}</h2>
             <h:form>
-                <h:commandButton value="Cerrar Sesion" action="#{login.cerrarSesion()}" />
+                <h:commandButton value="Cerrar Sesion" action="#{login.cerrarSesion()}" styleClass="cerrar_sesion"/>
             </h:form>
             
-            <ui:insert name="top">Top</ui:insert>
+            <ui:insert name="top"></ui:insert>
         </div>
         <div>
             <div id="left">
