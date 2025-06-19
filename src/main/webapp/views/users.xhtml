@@ -19,7 +19,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-        <title>Facelets Template</title>
+        <title>Sistema de Registro SBR</title>
     </h:head>
 
     <h:body>
@@ -29,43 +29,61 @@
             <h1>Sistema de Registro SBR</h1>
             <h2>Usuario: #{login.usuario}</h2>
             <h:form>
-                <h:commandButton value="Cerrar Sesion" action="#{login.cerrarSesion()}" styleClass="cerrar_sesion"/>
+                <h:commandButton value="Cerrar Sesion" action="#{login.cerrarSesion()}" styleClass="cerrar_sesion" style="padding: 8px"/>
             </h:form>
             
             <ui:insert name="top"></ui:insert>
         </div>
         <div>
             <div id="left">
-                <h:link value="Usuarios" outcome="/views/usuarios/index_u.xtml" />
+                <h:link value="Ver usuarios" outcome="/views/usuarios/index_u.xtml" />
                 
                 
                 <ui:insert name="left"></ui:insert>
             </div>
             <div id="content" class="left_content">
-                <ui:insert name="content">Content</ui:insert>
+                <ui:insert name="content"></ui:insert>
             </div>
         </div>
         <div id="bottom">
             
             <h2>&copy; SENA - SBR</h2>
-            <ui:insert name="bottom">Bottom</ui:insert>
+            <ui:insert name="bottom">Todos los derechos reservados</ui:insert>
         </div>
         
         <script>
-                    $(document).ready(function () {
-                        $('.jsf-data-table').DataTable({
-                            dom: 'Bfrtip',
-                            "language": {
-                                "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
-                            },
-                            "pageLength": 50,
-                            buttons: [
-                                'copy', 'csv', 'excel', 'pdf', 'print'
-                            ]
-                        });
-
-                    });
-                </script>
+    $(document).ready(function () {
+        $('.jsf-data-table').DataTable({
+            dom: 'Bfrtip',
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
+            },
+            "pageLength": 50,
+            buttons: [
+                {
+                    extend: 'copy',
+                    className: 'bt-copy'
+                },
+                {
+                    extend: 'csv',
+                    className: 'bt-csv'
+                },
+                {
+                    extend: 'excel',
+                    className: 'bt-excel'
+                },
+                {
+                    extend: 'pdf',
+                    className: 'bt-pdf'
+                },
+                {
+                    extend: 'print',
+                    className: 'bt-print'
+                }
+            ]
+        });
+    });
+</script>
 
     </h:body>
 
