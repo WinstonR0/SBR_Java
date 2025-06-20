@@ -9,7 +9,8 @@
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 15px;
-}
+    opacity: 50%;
+   }
 
 #bottom /* Footer de plantilla */{
     display: flex;
@@ -55,7 +56,6 @@
 .left_content /* Cuadro central de datos */{
     position: relative;
     top: -53px;
-    background: whitesmoke;
     padding: 5px;
     margin-left: 120px;
     width: auto;
