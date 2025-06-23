@@ -4,13 +4,13 @@
  */
 package sbr.com.sbr_java;
 
-import com.sun.org.apache.bcel.internal.generic.Select;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
@@ -24,7 +24,7 @@ import sbr.com.sbr_java.services.UsuariosFacadeLocal;
  * @author USER
  */
 @Named(value = "usersController")
-@ViewScoped
+@SessionScoped
 public class UsersController implements Serializable {
 
     private Usuarios user = new Usuarios();
@@ -70,7 +70,7 @@ public class UsersController implements Serializable {
         }
         return null;
     }
-
+    
     public List<SelectItem> getListaClientes() {
         return listaClientes();
     }
@@ -95,5 +95,32 @@ public class UsersController implements Serializable {
         return null; // Quédate en la misma vista si hay error
         }
     }
+    
+    private Usuarios userSeleccionado;
+
+    public Usuarios getUserSeleccionado() {
+        return userSeleccionado;
+    }
+
+    public void setUserSeleccionado(Usuarios userSeleccionado) {
+        this.userSeleccionado = userSeleccionado;
+    }
+    
+    public String editarUsuario(Usuarios user2) {
+        //this.user = this.userSeleccionado;
+        this.user = user2;
+        if (user2.getId() != null) {
+            this.cli.setId(user2.getId());
+        }
+        return "/views/usuarios/crear_act.xhtml?faces-redirect=true";
+     
+        
+        
+        
+    }
+    
+    
+    
+    
 
 }
