@@ -113,10 +113,16 @@ public class UsersController implements Serializable {
             this.cli.setId(user2.getId());
         }
         return "/views/usuarios/crear_act.xhtml?faces-redirect=true";
-     
-        
-        
-        
+    }
+    
+    public void editarUsuario2() {
+        try {
+            this.ufl.edit(user);
+            FacesContext fc = FacesContext.getCurrentInstance();
+            FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cliente Editado", "MSG_INFO");
+            fc.addMessage(null, fm);
+        } catch (Exception e) {
+        }
     }
     
     

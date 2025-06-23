@@ -18,7 +18,7 @@
                         <h1><h:outputText value="Create/Edit"/></h1>
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Id:" for="id" />
-                            <h:inputText id="id" value="#{usersController.user.id}" title="Id" required="true" requiredMessage="The Id field is required."/>
+                            <h:inputText id="id" value="#{usersController.user.id}" title="Id" required="true" requiredMessage="The Id field is required." disabled="#{usersController.user.id != null }"/>
                             <h:outputLabel value="Nombres:" for="nombres" />
                             <h:inputText id="nombres" value="#{usersController.user.nombres}" title="Nombres" required="true" requiredMessage="The Nombres field is required."/>
                             <h:outputLabel value="Apellidos:" for="apellidos" />
@@ -32,7 +32,7 @@
                             <h:outputLabel value="Contrasena:" for="contrasena" />
                             <h:inputText id="contrasena" value="#{usersController.user.contrasena}" title="Contrasena" required="true" requiredMessage="The Contrasena field is required."/>
                             <h:outputLabel value="Rol:" for="rol" />
-                            <h:inputText id="rol" value="#{usersController.user.rol}" title="Rol" required="true" requiredMessage="The Rol field is required."/>
+                            <h:inputText id="rol" value="#{usersController.user.rol}" title="Rol" required="true" requiredMessage="The Rol field is required." disabled="#{usersController.user.id != null}"/>
                             <!--<h:outputLabel value="FechaRegistro:" for="fechaRegistro" />
                               <h:inputText id="fechaRegistro" value="#{usersController.user.fechaRegistro}" title="FechaRegistro" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
@@ -53,7 +53,12 @@
                                 <f:selectItems value="#{usersController.listaClientes}"/>
                             </h:selectOneMenu>-->
                         </h:panelGrid>
-                        <h:form><h:commandButton value="Guardar" actionListener="#{usersController.crearP2()}"/> </h:form>
+                        <h:form>
+                            <h:messages id="mensajes" globalOnly="tue" infoStyle="color: green" errorStyle="color: red"/>
+                            <h:commandButton value="Guardar" actionListener="#{usersController.crearP2()}" rendered="#{usersController.user.id == null}"/>
+                            <h:commandButton value="Editar" actionListener="#{usersController.editarUsuario2()}" rendered="#{usersController.user.id != null }" />
+                            <h:button value="Volver a ver usuarios" outcome="/views/usuarios/index_u.xhtml" />
+                        </h:form>
                     </h:form>
                 </f:view>
 
