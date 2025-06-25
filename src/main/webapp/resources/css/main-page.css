@@ -1,0 +1,507 @@
+
+.nav-final{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: medium;
+    display: flex;
+    justify-content: end;
+    color: black;
+    
+}
+
+.navegacion-sections{
+    background: #f4f4f4;
+}
+
+.link-header{
+    margin: 0 10px;
+    
+}
+
+
+
+.nav-link:hover{
+    background: #ffaa16;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#comunidad{
+    background: #2289e6;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#login{
+    background: #d72638;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.header-portada{
+    background: #ffaa16;
+}
+
+.header-titulo{
+    font-family: 'Montserrat';
+    font-weight: 800;
+    margin: 50px 0;
+    font-size: 50px;
+}
+
+.header-parrafo{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    margin: 50px 0;
+    font-size: 25px;
+}
+
+.header-link{
+    /* display: block; */
+    background: #d72638;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 15px 30px;
+    text-decoration: none;
+}
+
+.header-foto{
+    width: 300px;
+    margin: 50px 0;
+    border-radius: 300px 300px 0 0;
+}
+
+.logo-principal{
+    width: 100px;
+}
+
+
+/* Main */
+
+.comunidad-bloquetitulo{
+    text-align: center;
+    margin: 20px 0;
+}
+
+.comunidad-titulo{
+    display: inline-block; /* Evita que el borde ocupe toda la línea */
+    border-bottom: 5px solid #ffaa16; /* Grosor y color del subrayado */
+    padding-bottom: 5px; /* Ajusta la distancia del subrayado al texto */
+    font-weight: bold;
+}
+
+.comunidad-cliente{
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: #d72638;
+}
+
+.comunidad-vendedor{
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: #ff7f11;
+
+}
+
+.comunidad-domiciliario{
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: #38793b;
+}
+
+.contador-cliente{
+    color: #d72638;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+
+.contador-vendedor{
+    color: #ff7f11;
+    font-weight: bold;
+    font-size: 25px;
+    
+}
+
+.contador-domiciliario{
+    color: #38793b;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.comunidad-imgusers{
+    margin: 20px 0;
+    width: 150px;
+    
+}
+
+.comunidad-imgvendedor{
+    margin: 20px 0;
+    width: 150px;
+    
+}
+
+.comunidad-imgdomiciliario{
+    margin: 20px 0;
+    width: 150px;
+
+}
+
+/* Section 2 */
+
+.beneficio{
+    background: #fafafa;
+}
+
+.beneficio-bloquetitulo{
+    text-align: center;
+}
+
+.beneficio-titulo{
+    margin: 20px 0;
+    display: inline-block; /* Evita que el borde ocupe toda la línea */
+    border-bottom: 5px solid #ffaa16; /* Grosor y color del subrayado */
+    padding-bottom: 5px; /* Ajusta la distancia del subrayado al texto */
+    font-weight: bold;
+}
+
+
+
+
+
+.beneficio-imgCliente, .beneficio-imgVendedor, .beneficio-imgDomiciliario{
+    width: 300px;
+    margin: 20px 0;
+    
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px; /* Profundidad */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.flip-card-front {
+    background: #d72638; /* o el fondo que quieras */
+    z-index: 2;
+}
+
+.card-cliente{
+    background: #ec4d4d;
+}
+
+.card-vendedor{
+    background: #cecece;
+}
+.card-domiciliario{
+    background: #ffcb47;
+}
+
+
+  
+.flip-card-back {
+     /* fondo del dorso */
+    transform: rotateY(180deg);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.link-beneficio-cliente, .link-beneficio-vendedor, .link-beneficio-domiciliario{
+    background: white;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 13px 25px;
+    text-decoration: none;
+}
+
+.card-title{
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.card-text{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+/* Section 3 */
+
+.localidad-bloquetitulo{
+    text-align: center;
+    margin: 20px 0;
+}
+
+.localidad-titulo{
+    display: inline-block; /* Evita que el borde ocupe toda la línea */
+    border-bottom: 5px solid #ffaa16; /* Grosor y color del subrayado */
+    padding-bottom: 5px; /* Ajusta la distancia del subrayado al texto */
+    font-weight: bold;
+}
+
+.localidad-cliente{
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: #d72638;
+}
+
+.localidad-vendedor{
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: #ff7f11;
+
+}
+
+.localidad-domiciliario{
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: #38793b;
+}
+
+.contador-cliente{
+    color: #d72638;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+
+.contador-vendedor{
+    color: #ff7f11;
+    font-weight: bold;
+    font-size: 25px;
+    
+}
+
+.contador-domiciliario{
+    color: #38793b;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.localidad-imgusers, 
+.localidad-imgvendedor, 
+.localidad-imgdomiciliario{
+    margin: 30px 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1); 
+    
+}
+
+.localidad-imgusers:hover, 
+.localidad-imgvendedor:hover, 
+.localidad-imgdomiciliario:hover{
+
+    box-shadow: -30px -15px 2px #ffcb47;
+    transform: scale(1.1);
+    
+}
+
+.localidades{
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.slogan-localidad{
+    margin: 40px 0;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 20px;
+    padding: 0 100px;
+    
+}
+
+
+/* .localidad-bloqueslogan{
+} */
+
+/* #link-localidades{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 20px;
+
+} */
+
+/* ------------- */
+
+.footer{
+    background: #ececec;
+}
+
+.footer-text{
+    display: block;
+    color: black;
+} 
+
+.footer-titulo{
+    margin: 20px 0;
+    font-family: 'Poppins';
+    font-weight: 700;
+}
+
+.footer-logo{
+    width: 200px;
+    
+}
+
+.playstore , .appstore{
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.footer-container-redsocial{
+    display: flex;
+    align-self: center;
+}
+
+.footer-redsocial{
+    padding: 15px;
+    margin: 0 5px;
+    background: white;
+    border-radius: 50%;
+}
+
+.icono-redsocial{
+    width: 25px;
+
+}
+
+.fondo-facebook{
+    transition: background-color 0.3s ease-in-out;
+}
+
+.facebook{
+    transition: transform 0.3s, filter 0.3s;
+
+}
+
+.fondo-facebook:hover{
+    background-color: #0165E1;
+}
+
+.fondo-facebook:hover .facebook{
+    filter: brightness(0) invert(1);
+}
+
+/* Instagram */
+.fondo-instagram{
+    transition: background-color 0.3s ease-in-out;
+}
+
+.instagram{
+    transition: transform 0.3s, filter 0.3s;
+
+}
+
+.fondo-instagram:hover{
+    background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
+}
+
+.fondo-instagram:hover .instagram{
+    filter: brightness(0) invert(1);
+}
+
+/* Twitter */
+
+
+.fondo-twitter{
+    transition: background-color 0.3s ease-in-out;
+}
+
+.twitter{
+    transition: transform 0.3s, filter 0.3s;
+
+}
+
+.fondo-twitter:hover{
+    background-color: black;
+}
+
+.fondo-twitter:hover .twitter{
+    filter: brightness(0) invert(1);
+}
+
+
+/* linkedin */
+.fondo-linkedin{
+    transition: background-color 0.3s ease-in-out;
+}
+
+.linkedin{
+    transition: transform 0.3s, filter 0.3s;
+
+}
+
+.fondo-linkedin:hover{
+    background-color: #0165E1;
+}
+
+.fondo-linkedin:hover .linkedin{
+    filter: brightness(0) invert(1);
+}
+
+/* ------- */
+
+footer{
+    margin: 0;
+}
+
+.footer-container{
+    margin: 20px 20px;
+}
+
+.footer-footer-link{
+    
+    text-decoration: none;
+    color: black;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 15px;
+    margin: 10px 5px;
+    padding-right: 10px;
+    border-right: solid 2px black;
+    
+}
+
+.footer-footer-text{
+    display: inline;
+    float: right;
+}
+
+
+
+
+
+
+
