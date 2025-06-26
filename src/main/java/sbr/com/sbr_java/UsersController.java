@@ -125,7 +125,15 @@ public class UsersController implements Serializable {
         }
     }
     
-    
+    public void eliminarUsuario(Usuarios user2){
+        try {
+                this.ufl.remove(user2);
+                FacesContext fc = FacesContext.getCurrentInstance();
+                FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario eliminado", "MSG_INFO");
+                 fc.addMessage(null, fm);
+        } catch (Exception e) {
+        } 
+}
     
     
 

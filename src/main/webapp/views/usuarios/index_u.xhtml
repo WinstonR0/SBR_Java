@@ -10,6 +10,7 @@
         <ui:composition template="./../users.xhtml">
 
             <ui:define name="content">
+                <h:messages id="mensajes" globalOnly="true" infoStyle="color: green"/>
                 <h:form>
                     <h:commandButton value="Registrar usuarios" action="#{usersController.crearP1()}" styleClass="registro"/>
                 </h:form>
@@ -43,7 +44,7 @@
                                 <td>
                                     <h:form>
                                         <h:commandButton value="Editar" action="#{usersController.editarUsuario(item)}" />
-                                        <h:commandButton value="Eliminar" onclick="return confirm('Esta seguro de eliminar este registro?')"/>
+                                        <h:commandButton value="Eliminar" onclick="return confirm('Esta seguro de eliminar este registro?')" action="#{usersController.eliminarUsuario(item)}"/>
                                     </h:form>
                                 </td>
 
