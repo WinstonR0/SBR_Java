@@ -27,5 +27,18 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> implements Usuarios
     public UsuariosFacade() {
         super(Usuarios.class);
     }
-    
+
+    public Usuarios findByCorreoAndContrasena(String correo, String contrasena) {
+        try {
+            // Realiza una consulta JPQL para buscar un usuario con el correo y contraseña proporcionados
+            return em.createQuery("SELECT u FROM Usuarios u WHERE u.correo = :correo AND u.contrasena = :contrasena", Usuarios.class)
+                    .setParameter("correo", correo) // Asigna el parámetro :correo al valor recibido
+                    .setParameter("contrasena", contrasena) // Asigna el parámetro :contrasena
+                    .getSingleResult(); // Retorna el único resultado esperado
+        } catch (Exception e) {
+            // Si ocurre un error (como que no se encuentre el usuario), retorna null
+            return null;
+        }
+    }
+
 }

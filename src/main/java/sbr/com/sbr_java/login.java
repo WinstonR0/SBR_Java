@@ -7,9 +7,12 @@ package sbr.com.sbr_java;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
+import sbr.com.sbr_java.services.UsuariosFacade;
+import sbr.com.sbr_java.entities.Usuarios;
 
 /**
  *
@@ -18,8 +21,12 @@ import javax.servlet.http.HttpSession;
 @Named(value = "login")
 @SessionScoped
 public class login implements Serializable {
+
     private String usuario;
     private String contrasena;
+
+    @EJB
+    private UsuariosFacade uf;
 
     public String getUsuario() {
         return usuario;
@@ -36,41 +43,76 @@ public class login implements Serializable {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    
 
     /**
      * Creates a new instance of login
      */
     public login() {
     }
-    
-    public String iniciarSesion(){
-        
+
+    public String iniciarSesion() {
+
+        // Llama al método en UsuariosFacade para verificar si el usuario existe
+        Usuarios u = uf.findByCorreoAndContrasena(usuario, contrasena);
+
+        /*sesion.setAttribute("usuario", u.getCorreo()); // Guarda el correo
+        sesion.setAttribute("rol", u.getRol());        // Guarda el rol
+
         //user = this.ufl.iniciarSesion(usuario,contrasena);
         if (usuario.equals("Admin") && contrasena.equals("123")) {
             HttpSession sesion = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true); // El true indica que se crea una nueva sesion
-            sesion.setAttribute("usuario",usuario);
+            sesion.setAttribute("usuario", usuario);
             return "/views/index.xhtml?faces-redirect=true";
-    }else {
+        } else {
             FacesContext fc = FacesContext.getCurrentInstance();
             FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario y/o contrasena incorrecta", null);
             fc.addMessage(null, fm);
             return null;
+        }*/
+        if (u != null) {
+            // Si se encontró, inicia sesión y guarda datos en la sesión HTTP
+            FacesContext context = FacesContext.getCurrentInstance();
+            HttpSession sesion = (HttpSession) context.getExternalContext().getSession(true);
+
+            sesion.setAttribute("usuario", u.getCorreo()); // Guarda el correo
+            sesion.setAttribute("rol", u.getRol());        // Guarda el rol
+
+            // Redirige según el rol del usuario
+            switch (u.getRol()) {
+                case "ADMIN":
+                    return "/views/index.xhtml?faces-redirect=true";
+                case "CLIENTE":
+                    return "/views/clientes/index_cliente.xhtml?faces-redirect=true";
+                case "VENDEDOR":
+                    return "/views/vendedor/index_vendedor.xhtml?faces-redirect=true";
+                case "DOMICILIARIO":
+                    return "/views/domiciliario/index_domiciliario.xhtml?faces-redirect=true";
+                default:
+                    // Si el rol no es reconocido, muestra un mensaje de error
+                    FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Rol no reconocido", null);
+                    context.addMessage(null, fm);
+                    return null;
+            }
+        } else {
+            // Si no encuentra el usuario, muestra mensaje de error
+            FacesContext context = FacesContext.getCurrentInstance();
+            FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Correo y/o contraseña incorrectos", null);
+            context.addMessage(null, fm);
+            return null;
         }
     }
-    
+
     // Método para cerrar la sesión del usuario actual
     public String cerrarSesion() {
-    
-    // Obtiene el contexto actual de JSF, que contiene toda la info de la petición web en curso
-    FacesContext context = FacesContext.getCurrentInstance();
-    
-    // Invalida (destruye) la sesión activa del usuario esto elimina todos los atributos guardados como "usuario"
-    context.getExternalContext().invalidateSession();
-    
-    // Redirecciona al archivo login.xhtml. El "faces-redirect=true" indica que se debe hacer una redirección real
-    return "login.xhtml?faces-redirect=true";
+
+        // Obtiene el contexto actual de JSF, que contiene toda la info de la petición web en curso
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        // Invalida (destruye) la sesión activa del usuario esto elimina todos los atributos guardados como "usuario"
+        context.getExternalContext().invalidateSession();
+
+        // Redirecciona al archivo login.xhtml. El "faces-redirect=true" indica que se debe hacer una redirección real
+        return "login.xhtml?faces-redirect=true";
     }
 
 }
-    
