@@ -29,4 +29,6 @@ public interface UsuariosFacadeLocal {
 
     int count();
     
+     Usuarios findByCorreoAndContrasena(String correo, String contrasena);
+    
 }
