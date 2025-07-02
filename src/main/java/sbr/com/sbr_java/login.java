@@ -13,6 +13,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import sbr.com.sbr_java.services.UsuariosFacade;
 import sbr.com.sbr_java.entities.Usuarios;
+import sbr.com.sbr_java.services.UsuariosFacadeLocal;
 
 /**
  *
@@ -26,7 +27,7 @@ public class login implements Serializable {
     private String contrasena;
 
     @EJB
-    private UsuariosFacade uf;
+    private UsuariosFacadeLocal uf;
 
     public String getUsuario() {
         return usuario;
@@ -79,13 +80,13 @@ public class login implements Serializable {
 
             // Redirige según el rol del usuario
             switch (u.getRol()) {
-                case "ADMIN":
+                case "admin":
                     return "/views/index.xhtml?faces-redirect=true";
-                case "CLIENTE":
+                case "cliente":
                     return "/views/clientes/index_cliente.xhtml?faces-redirect=true";
-                case "VENDEDOR":
+                case "vendedor":
                     return "/views/vendedor/index_vendedor.xhtml?faces-redirect=true";
-                case "DOMICILIARIO":
+                case "domiciliario":
                     return "/views/domiciliario/index_domiciliario.xhtml?faces-redirect=true";
                 default:
                     // Si el rol no es reconocido, muestra un mensaje de error

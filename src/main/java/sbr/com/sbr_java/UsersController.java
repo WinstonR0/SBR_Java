@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSF/JSFManagedBean.java to edit this template
+     * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+     * Click nbfs://nbhost/SystemFileSystem/Templates/JSF/JSFManagedBean.java to edit this template
  */
 package sbr.com.sbr_java;
 
@@ -55,6 +55,14 @@ public class UsersController implements Serializable {
     public UsersController() {
     }
 
+    public List<String> getRolesDisponibles() {
+        List<String> roles = new ArrayList<>();
+        roles.add("Cliente");
+        roles.add("Vendedor");
+        roles.add("Domiciliario");
+        return roles;
+    }
+
     public List<SelectItem> listaClientes() {
 
         listaClientes = new ArrayList<>();
@@ -70,7 +78,7 @@ public class UsersController implements Serializable {
         }
         return null;
     }
-    
+
     public List<SelectItem> getListaClientes() {
         return listaClientes();
     }
@@ -79,7 +87,7 @@ public class UsersController implements Serializable {
         this.user = new Usuarios();
         return "/views/usuarios/crear_act.xhtml?faces-redirect=true";
     }
-    
+
     public String crearP2() {
         this.user.getId();
         try {
@@ -92,10 +100,10 @@ public class UsersController implements Serializable {
             return null;
         } catch (Exception e) {
             e.printStackTrace(); // Agrega para depurar si ocurre algo
-        return null; // Quédate en la misma vista si hay error
+            return null; // Quédate en la misma vista si hay error
         }
     }
-    
+
     private Usuarios userSeleccionado;
 
     public Usuarios getUserSeleccionado() {
@@ -105,7 +113,7 @@ public class UsersController implements Serializable {
     public void setUserSeleccionado(Usuarios userSeleccionado) {
         this.userSeleccionado = userSeleccionado;
     }
-    
+
     public String editarUsuario(Usuarios user2) {
         //this.user = this.userSeleccionado;
         this.user = user2;
@@ -114,7 +122,7 @@ public class UsersController implements Serializable {
         }
         return "/views/usuarios/crear_act.xhtml?faces-redirect=true";
     }
-    
+
     public void editarUsuario2() {
         try {
             this.ufl.edit(user);
@@ -124,17 +132,15 @@ public class UsersController implements Serializable {
         } catch (Exception e) {
         }
     }
-    
-    public void eliminarUsuario(Usuarios user2){
+
+    public void eliminarUsuario(Usuarios user2) {
         try {
-                this.ufl.remove(user2);
-                FacesContext fc = FacesContext.getCurrentInstance();
-                FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario eliminado", "MSG_INFO");
-                 fc.addMessage(null, fm);
+            this.ufl.remove(user2);
+            FacesContext fc = FacesContext.getCurrentInstance();
+            FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario eliminado", "MSG_INFO");
+            fc.addMessage(null, fm);
         } catch (Exception e) {
-        } 
-}
-    
-    
+        }
+    }
 
 }
