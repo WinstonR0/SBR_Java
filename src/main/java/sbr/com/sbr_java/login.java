@@ -82,7 +82,7 @@ public class login implements Serializable {
             switch (u.getRol()) {
                 case "ADMIN":
                     return "/views/index.xhtml?faces-redirect=true";
-                case "CLIENTE":
+                case "cliente":
                     return "/views/clientes/index_cliente.xhtml?faces-redirect=true";
                 case "VENDEDOR":
                     return "/views/vendedor/index_vendedor.xhtml?faces-redirect=true";

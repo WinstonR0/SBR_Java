@@ -65,6 +65,9 @@ a {
 }
 
 .form-container form {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
   background: #fff;
   display: flex;
   flex-direction: column;
