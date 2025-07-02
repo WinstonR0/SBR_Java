@@ -7,7 +7,7 @@
         <property name="databaseName" value="sbr"/>
         <property name="User" value="root"/>
         <property name="Password" value=""/>
-        <property name="URL" value="jdbc:mysql://localhost:3306/sbr?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+        <property name="URL" value="jdbc:mysql://localhost:3306/sbr?zeroDateTimeBehavior=CONVERT_TO_NULL&amp;useSSL=false"/>
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="java:app/jndi_sbr" object-type="user" pool-name="mysql_sbr_rootPool"/>

@@ -27,7 +27,8 @@ public class login implements Serializable {
     private String contrasena;
 
     @EJB
-    private UsuariosFacadeLocal uf;
+    private UsuariosFacadeLocal ufl;
+
 
     public String getUsuario() {
         return usuario;
@@ -54,7 +55,7 @@ public class login implements Serializable {
     public String iniciarSesion() {
 
         // Llama al método en UsuariosFacade para verificar si el usuario existe
-        Usuarios u = uf.findByCorreoAndContrasena(usuario, contrasena);
+        Usuarios u = ufl.findByCorreoAndContrasena(usuario, contrasena);
 
         /*sesion.setAttribute("usuario", u.getCorreo()); // Guarda el correo
         sesion.setAttribute("rol", u.getRol());        // Guarda el rol
