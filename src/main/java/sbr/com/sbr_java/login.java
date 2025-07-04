@@ -4,6 +4,7 @@
  */
 package sbr.com.sbr_java;
 
+import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -104,19 +105,41 @@ public class login implements Serializable {
             context.addMessage(null, fm);
             return null;
         }
+
     }
 
     // Método para cerrar la sesión del usuario actual
-    public String cerrarSesion() {
-
-        // Obtiene el contexto actual de JSF, que contiene toda la info de la petición web en curso
+    public void cerrarSesion() {
         FacesContext context = FacesContext.getCurrentInstance();
-
-        // Invalida (destruye) la sesión activa del usuario esto elimina todos los atributos guardados como "usuario"
         context.getExternalContext().invalidateSession();
-
-        // Redirecciona al archivo login.xhtml. El "faces-redirect=true" indica que se debe hacer una redirección real
-        return "login.xhtml?faces-redirect=true";
+        try {
+            context.getExternalContext().redirect(
+                    context.getExternalContext().getRequestContextPath() + "/login.xhtml"
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    
+    // metodo para verificar el rol antes de cargar el dashboard (para mas seguridad)
+    public void verificarAdmin() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
+        HttpSession sesion = (HttpSession) context.getExternalContext().getSession(false);
+
+        if (sesion == null) {
+            // no hay sesion: debe redirigir al login
+            context.getExternalContext().redirect("/login.xhtml");
+            return;
+        }
+
+        String rol = (String) sesion.getAttribute("rol");
+        if (rol == null || !"admin".equals(rol)) {
+            // No tiene permisos es decir que debe redirigir a un error
+            context.getExternalContext().redirect(context.getExternalContext().getRequestContextPath() + "/views/usuarios-admin/no_autorizado.xhtml");
+        }
+    }
+
+    
+    
 
 }

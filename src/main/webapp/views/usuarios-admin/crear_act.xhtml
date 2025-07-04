@@ -58,7 +58,7 @@
                             <h:messages id="mensajes" globalOnly="tue" infoStyle="color: green" errorStyle="color: red"/>
                             <h:commandButton value="Guardar" actionListener="#{usersController.crearP2()}" rendered="#{usersController.user.id == null}"/>
                             <h:commandButton value="Editar" actionListener="#{usersController.editarUsuario2()}" rendered="#{usersController.user.id != null }" />
-                            <h:button value="Volver a ver usuarios" outcome="/views/usuarios/index_u.xhtml" />
+                            <h:button value="Volver a ver usuarios" outcome="/views/usuarios-admin/index_u.xhtml" />
                         </h:form>
                     </h:form>
                 </f:view>

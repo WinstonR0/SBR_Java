@@ -6,6 +6,7 @@ package sbr.com.sbr_java.security;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+
 /**
  *
  * @author USER

@@ -23,25 +23,22 @@
     </h:head>
 
     <h:body>
-        
 
         <div id="top">
-            
-            
+
             <h:form>
-                <div>
-                <img src="../resources/images/logo.png" alt=""/>
-                </div>
-                <h:commandButton value="Cerrar Sesion" action="#{login.cerrarSesion()}" styleClass="cerrar_sesion" style="padding: 8px"/>
+            <h:commandButton value="Cerrar Sesión" action="#{login.cerrarSesion}" />
             </h:form>
-            
+
+
+
             <ui:insert name="top"></ui:insert>
         </div>
         <div>
             <div id="left">
-                <h:link value="Ver usuarios" outcome="/views/usuarios/index_u.xtml" />
-                
-                
+                <h:link value="Ver usuarios" outcome="/views/usuarios-admin/index_u.xhtml" />
+
+
                 <ui:insert name="left"></ui:insert>
             </div>
             <div id="content" class="left_content">
@@ -49,44 +46,44 @@
             </div>
         </div>
         <div id="bottom">
-            
+
             <h2>&copy; SENA - SBR</h2>
             <ui:insert name="bottom">Todos los derechos reservados</ui:insert>
         </div>
-        
+
         <script>
-    $(document).ready(function () {
-        $('.jsf-data-table').DataTable({
-            dom: 'Bfrtip',
-            "language": {
-                "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
-            },
-            "pageLength": 50,
-            buttons: [
-                {
-                    extend: 'copy',
-                    className: 'bt-copy'
-                },
-                {
-                    extend: 'csv',
-                    className: 'bt-csv'
-                },
-                {
-                    extend: 'excel',
-                    className: 'bt-excel'
-                },
-                {
-                    extend: 'pdf',
-                    className: 'bt-pdf'
-                },
-                {
-                    extend: 'print',
-                    className: 'bt-print'
-                }
-            ]
-        });
-    });
-</script>
+            $(document).ready(function () {
+                $('.jsf-data-table').DataTable({
+                    dom: 'Bfrtip',
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
+                    },
+                    "pageLength": 50,
+                    buttons: [
+                        {
+                            extend: 'copy',
+                            className: 'bt-copy'
+                        },
+                        {
+                            extend: 'csv',
+                            className: 'bt-csv'
+                        },
+                        {
+                            extend: 'excel',
+                            className: 'bt-excel'
+                        },
+                        {
+                            extend: 'pdf',
+                            className: 'bt-pdf'
+                        },
+                        {
+                            extend: 'print',
+                            className: 'bt-print'
+                        }
+                    ]
+                });
+            });
+        </script>
 
     </h:body>
 

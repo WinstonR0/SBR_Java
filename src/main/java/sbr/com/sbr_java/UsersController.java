@@ -86,7 +86,7 @@ public class UsersController implements Serializable {
 
     public String crearP1() {
         this.user = new Usuarios();
-        return "/views/usuarios/crear_act.xhtml?faces-redirect=true";
+        return "/views/usuarios-admin/crear_act.xhtml?faces-redirect=true";
     }
 
     public String crearP2() {
@@ -124,7 +124,7 @@ public class UsersController implements Serializable {
         if (user2.getId() != null) {
             this.cli.setId(user2.getId());
         }
-        return "/views/usuarios/crear_act.xhtml?faces-redirect=true";
+        return "/views/usuarios-admin/crear_act.xhtml?faces-redirect=true";
     }
 
     public void editarUsuario2() {
