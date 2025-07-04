@@ -29,7 +29,6 @@ public class login implements Serializable {
     @EJB
     private UsuariosFacadeLocal ufl;
 
-
     public String getUsuario() {
         return usuario;
     }
@@ -79,8 +78,11 @@ public class login implements Serializable {
             sesion.setAttribute("usuario", u.getCorreo()); // Guarda el correo
             sesion.setAttribute("rol", u.getRol());        // Guarda el rol
 
+            // Normaliza el rol para evitar errores por mayúsculas o espacios
+            String rol = u.getRol().toLowerCase().trim();
+
             // Redirige según el rol del usuario
-            switch (u.getRol()) {
+            switch (u.getRol().toLowerCase()) {
                 case "admin":
                     return "/views/index.xhtml?faces-redirect=true";
                 case "cliente":

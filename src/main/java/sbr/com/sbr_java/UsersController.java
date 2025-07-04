@@ -57,6 +57,7 @@ public class UsersController implements Serializable {
 
     public List<String> getRolesDisponibles() {
         List<String> roles = new ArrayList<>();
+        //roles.add("Admin");
         roles.add("Cliente");
         roles.add("Vendedor");
         roles.add("Domiciliario");
@@ -91,6 +92,9 @@ public class UsersController implements Serializable {
     public String crearP2() {
         this.user.getId();
         try {
+
+            this.user.setRol(user.getRol().toLowerCase());
+
             this.ufl.create(user);
             FacesContext fc = FacesContext.getCurrentInstance();
             FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cliente Registrado", "MSG_INFO");

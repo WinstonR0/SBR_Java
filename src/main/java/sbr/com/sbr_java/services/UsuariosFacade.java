@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import sbr.com.sbr_java.entities.Usuarios;
+import sbr.com.sbr_java.security.PasswordUtil;
 
 /**
  *
@@ -28,17 +29,32 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> implements Usuarios
         super(Usuarios.class);
     }
 
+    @Override
+    public void create(Usuarios user) {
+        // Hashear la contraseña antes de guardar en BD
+        String hashed = PasswordUtil.hasPassword(user.getContrasena());
+        user.setContrasena(hashed);
+        getEntityManager().persist(user);
+    }
+
     public Usuarios findByCorreoAndContrasena(String correo, String contrasena) {
+
         try {
-            // Realiza una consulta JPQL para buscar un usuario con el correo y contraseña proporcionados
-            return em.createQuery("SELECT u FROM Usuarios u WHERE u.correo = :correo AND u.contrasena = :contrasena", Usuarios.class)
-                    .setParameter("correo", correo) // Asigna el parámetro :correo al valor recibido
-                    .setParameter("contrasena", contrasena) // Asigna el parámetro :contrasena
-                    .getSingleResult(); // Retorna el único resultado esperado
+            // Buscar por correo solamente
+            Usuarios usuario = em.createQuery("SELECT u FROM Usuarios u WHERE u.correo = :correo", Usuarios.class)
+                    .setParameter("correo", correo)
+                    .getSingleResult();
+
+            // Verificar contraseña con hash
+            if (usuario != null && PasswordUtil.checkPassword(contrasena, usuario.getContrasena())) {
+                return usuario;
+            } else {
+                return null;
+            }
         } catch (Exception e) {
-            // Si ocurre un error (como que no se encuentre el usuario), retorna null
-            return null;
+            return null; // Usuario no encontrado o error
         }
+
     }
 
 }

@@ -71,7 +71,7 @@ public class Usuarios implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "telefono")
-    private int telefono;
+    private String telefono;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
@@ -110,7 +110,7 @@ public class Usuarios implements Serializable {
         this.id = id;
     }
 
-    public Usuarios(Integer id, String nombres, String apellidos, String documento, int telefono, String correo, String contrasena, String rol) {
+    public Usuarios(Integer id, String nombres, String apellidos, String documento, String telefono, String correo, String contrasena, String rol) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -153,11 +153,11 @@ public class Usuarios implements Serializable {
         this.documento = documento;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
