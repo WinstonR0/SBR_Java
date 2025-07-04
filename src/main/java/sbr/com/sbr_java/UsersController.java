@@ -94,6 +94,8 @@ public class UsersController implements Serializable {
         try {
 
             this.user.setRol(user.getRol().toLowerCase());
+            
+            this.user.setFechaRegistro(new java.util.Date());
 
             this.ufl.create(user);
             FacesContext fc = FacesContext.getCurrentInstance();
