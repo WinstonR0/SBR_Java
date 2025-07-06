@@ -2,7 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{login.verificarVendedor}" />
+    </f:metadata>
+
 
     <body>
 
@@ -14,6 +20,44 @@
                 <h:form>
                     <h:commandButton value="Cerrar Sesión" action="#{login.cerrarSesion()}" />
                 </h:form>
+
+                <h2>Mis productos</h2>
+                <h:messages id="mensajes" globalOnly="true" infoStyle="color:green" errorStyle="color:red" />
+
+                <h:form>
+                    <h:commandButton value="Registrar producto" action="crear_producto?faces-redirect=true" styleClass="registro" />
+                </h:form>
+
+                <table id="t-all" class="jsf-data-table display nowrap" width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ui:repeat value="#{productoController.misProductos}" var="item">
+                            <tr style="background-color: #fcf3cf">
+                                <td>#{item.id}</td>
+                                <td>#{item.nombre}</td>
+                                <td>#{item.descripcion}</td>
+                                <td>#{item.precio}</td>
+                                <td>#{item.stock}</td>
+                                <td>
+                                    <h:form>
+                                        <h:commandButton value="Editar" action="#{productoController.editarProducto(item)}"/>
+                                        <h:commandButton value="Eliminar" action="#{productoController.eliminarProducto(item)}" onclick="return confirm('¿Seguro que deseas eliminar este producto?')"/>
+                                    </h:form>
+                                </td>
+                            </tr>
+                        </ui:repeat>
+                    </tbody>
+                </table>
+
             </ui:define>
 
 

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import sbr.com.sbr_java.services.UsuariosFacade;
 import sbr.com.sbr_java.entities.Usuarios;
 import sbr.com.sbr_java.services.UsuariosFacadeLocal;
+import sbr.com.sbr_java.services.VendedorFacadeLocal;
+import sbr.com.sbr_java.entities.Vendedor;
 
 /**
  *
@@ -26,6 +28,11 @@ public class login implements Serializable {
 
     private String usuario;
     private String contrasena;
+
+    private Vendedor vendedorLogueado;
+
+    @EJB
+    private VendedorFacadeLocal vdf;
 
     @EJB
     private UsuariosFacadeLocal ufl;
@@ -44,6 +51,30 @@ public class login implements Serializable {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public Vendedor getVendedorLogueado() {
+        return vendedorLogueado;
+    }
+
+    public void setVendedorLogueado(Vendedor vendedorLogueado) {
+        this.vendedorLogueado = vendedorLogueado;
+    }
+
+    public VendedorFacadeLocal getVdf() {
+        return vdf;
+    }
+
+    public void setVdf(VendedorFacadeLocal vdf) {
+        this.vdf = vdf;
+    }
+
+    public UsuariosFacadeLocal getUfl() {
+        return ufl;
+    }
+
+    public void setUfl(UsuariosFacadeLocal ufl) {
+        this.ufl = ufl;
     }
 
     /**
@@ -89,6 +120,8 @@ public class login implements Serializable {
                 case "cliente":
                     return "/views/clientes/index_cliente.xhtml?faces-redirect=true";
                 case "vendedor":
+                    this.vendedorLogueado = vdf.findByUsuarioId(u.getId());
+                    System.out.println("Vendedor logueado" + this.vendedorLogueado);
                     return "/views/vendedor/index_vendedor.xhtml?faces-redirect=true";
                 case "domiciliario":
                     return "/views/domiciliario/index_domiciliario.xhtml?faces-redirect=true";
@@ -120,7 +153,7 @@ public class login implements Serializable {
             e.printStackTrace();
         }
     }
-    
+
     // metodo para verificar el rol antes de cargar el dashboard (para mas seguridad)
     public void verificarAdmin() throws IOException {
         FacesContext context = FacesContext.getCurrentInstance();
@@ -139,7 +172,20 @@ public class login implements Serializable {
         }
     }
 
-    
-    
+    // Método para verificar si el usuario logueado es vendedor
+    public void verificarVendedor() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
+        HttpSession sesion = (HttpSession) context.getExternalContext().getSession(false);
+
+        if (sesion == null) {
+            context.getExternalContext().redirect("/login.xhtml");
+            return;
+        }
+
+        String rol = (String) sesion.getAttribute("rol");
+        if (rol == null || !"vendedor".equalsIgnoreCase(rol)) {
+            context.getExternalContext().redirect(context.getExternalContext().getRequestContextPath() + "/views/usuarios-admin/no_autorizado.xhtml");
+        }
+    }
 
 }

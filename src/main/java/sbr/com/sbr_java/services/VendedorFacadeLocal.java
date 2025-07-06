@@ -28,5 +28,7 @@ public interface VendedorFacadeLocal {
     List<Vendedor> findRange(int[] range);
 
     int count();
-    
+
+    public Vendedor findByUsuarioId(int usuarioId);
+
 }

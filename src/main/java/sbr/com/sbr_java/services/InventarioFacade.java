@@ -4,6 +4,7 @@
  */
 package sbr.com.sbr_java.services;
 
+import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,6 +14,7 @@ import sbr.com.sbr_java.entities.Inventario;
  *
  * @author USER
  */
+@PermitAll
 @Stateless
 public class InventarioFacade extends AbstractFacade<Inventario> implements InventarioFacadeLocal {
 

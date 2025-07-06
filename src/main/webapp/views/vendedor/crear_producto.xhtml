@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../users.xhtml">
+
+            <ui:define name="content">
+                <h1>#{productoController.editando ? 'Editar producto' : 'Registrar nuevo producto'}</h1>
+
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Nombre:" />
+                        <h:inputText value="#{productoController.producto.nombre}" required="true" />
+
+                        <h:outputLabel value="Descripción:" />
+                        <h:inputTextarea value="#{productoController.producto.descripcion}" required="true" />
+
+                        <h:outputLabel value="Precio:" />
+                        <h:inputText value="#{productoController.producto.precio}" required="true" />
+
+                        <h:outputLabel value="Stock:" />
+                        <h:inputText value="#{productoController.producto.stock}" required="true" />
+
+                        <h:outputLabel value="Categoría:" />
+                        <h:inputText value="#{productoController.producto.categoria}" required="true" />
+                    </h:panelGrid>
+
+                    <h:commandButton value="#{productoController.editando ? 'Guardar cambios' : 'Guardar producto'}" action="#{productoController.guardarProducto}" />
+
+                    <h:messages globalOnly="true" />
+                </h:form>
+                <h:form>
+                    <h:commandLink value="← Volver al panel" action="index_vendedor.xhtml?faces-redirect=true" />
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

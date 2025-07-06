@@ -4,6 +4,8 @@
  */
 package sbr.com.sbr_java.services;
 
+import java.util.List;
+import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,6 +15,7 @@ import sbr.com.sbr_java.entities.Producto;
  *
  * @author USER
  */
+@PermitAll
 @Stateless
 public class ProductoFacade extends AbstractFacade<Producto> implements ProductoFacadeLocal {
 
@@ -27,5 +30,13 @@ public class ProductoFacade extends AbstractFacade<Producto> implements Producto
     public ProductoFacade() {
         super(Producto.class);
     }
-    
+
+    public List<Producto> findByVendedorId(Integer vendedorId) {
+        return em.createQuery(
+                "SELECT p FROM Producto p WHERE p.vendedorId.id = :vendedorId",
+                Producto.class)
+                .setParameter("vendedorId", vendedorId)
+                .getResultList();
+    }
+
 }
