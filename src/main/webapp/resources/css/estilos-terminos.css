@@ -1,0 +1,505 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 30/06/2025, 5:13:53 p. m.
+    Author     : USER
+*/
+/* General */
+/* body {
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+} */
+
+/* NAVEGACION */
+
+/* 
+.navegacion-sections
+contenedor que almacena toda la barra de navegación
+
+-background: #f4f4f4 es el color de fondo de la barra de navegación;
+*/
+
+.navegacion-sections{
+    background: #f4f4f4;
+}
+
+/* .logo-principal
+contenedor que almacena el logo de la empresa
+
+- width: 100px, es el ancho del logo
+*/
+
+.logo-principal{
+    width: 100px;
+}
+
+/* 
+.nav-final
+contenedor que almacena la barra de navegación
+
+-Poppins es la fuente utilizada para el texto de la navegación.;
+-font-weight: 500 es el grosor de la fuente utilizada para el texto de la navegación;
+-font-size: medium es el tamaño de la fuente utilizada para el texto de la navegación para que sea light;
+-display: flex es la propiedad utilizada para crear un contenedor flexible;
+-justify-content: end es la propiedad utilizada para alinear los elementos dentro del contenedor flexible a la derecha;
+-color: black para dar que las letras sean de color negro 
+*/ 
+
+.nav-final{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: medium;
+    display: flex;
+    justify-content: end;
+    color: black;
+    
+}
+
+/* 
+.link-header
+margen de los links de las secciones
+
+-margin: 0 10px, este margin tiene 0px de top-bottom y 10px de left-right
+*/
+
+.link-header{
+    margin: 0 10px;
+}
+
+/* 
+.nav-link:hover
+Los hipervinculos tendran un color al momento de pasar el mouse saobre ellas
+
+-background: #ffaa16, color de fondo
+- color: white, color blanco de las letras cuando se pase el mouse
+-border-radius: 10px, sus bordes tendran una curvatura de 10 px
+-font-weight: bold, las letras sera bold (negrillas) 
+*/
+
+.nav-link:hover{
+    background: #ffaa16;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* 
+#comunidad
+
+- background: #2289e6, color azul para el fondo del hipervinculo
+- color:white, color blanco para sus letras
+- font-weight: bold, letras en bold (negrillas)
+- border-radius: 10px, cuvartura de los bordes 
+
+*/
+
+#comunidad{
+    background: #2289e6;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+/* 
+#login 
+
+- background: #d72638, color rojo para el fondo del hipervinculo
+- color:white, color blanco para sus letras
+- font-weight: bold, letras en bold (negrillas)
+- border-radius: 30px, cuvartura de los bordes 
+*/
+
+
+#login{
+    background: #d72638;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+
+/* ------------------- */
+
+main{
+    background: rgb(223, 223, 223);
+}
+
+.container {
+  max-width: 900px;
+  padding: 40px 20px;
+  margin: auto;
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+/* Acordeón */
+.accordion-button {
+  font-weight: 600;
+  font-size: 1.1rem;
+  background-color: #e9f0fb;
+  color: #0d6efd;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #d0e3ff;
+  color: #063c9e;
+}
+
+.accordion-body {
+  background-color: #ffffff;
+  padding: 20px;
+  border-left: 3px solid #0d6efd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .accordion-button {
+    font-size: 1rem;
+  }
+}
+
+
+/* ------------- */
+
+/* Footer */
+
+/* 
+.footer
+
+- background: #ececec, color de fondo del footer 
+
+.footer-text
+- display: block, el texto sera un bloque
+- color: black, el color de la letra
+*/
+
+.footer{
+    background: #ececec;
+}
+
+.footer-text{
+    display: block;
+    color: black;
+} 
+
+/* 
+.footer-titulo
+
+- margin: 20px 0, margen de 20px en la parte superior e inferior
+- font-family: 'Poppins', fuente del texto
+- font-weight: 700, la letra sera bold (negrillas)
+*/
+
+.footer-titulo{
+    margin: 20px 0;
+    font-family: 'Poppins';
+    font-weight: 700;
+}
+
+/*
+.footer-logo
+- width: 200px, el ancho del logo sera de 200px
+*/
+
+.footer-logo{
+    width: 200px; 
+}
+
+/* 
+.playstore , .appstore
+
+- margin-bottom: 10px, margen de 10px en la parte inferior
+- width: 150px, el ancho de los logos sera de 150px
+*/
+
+.playstore , .appstore{
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+/* 
+.footer-container-redsocial
+
+- display: flex, el contenedor sera un bloque flexible
+- align-self: center, el contenedor se alineara al centro
+*/
+
+.footer-container-redsocial{
+    display: flex;
+    align-self: center;
+}
+
+/* 
+.footer-redsocial
+
+- padding: 15px, el padding sera de 15px
+- margin: 0 5px, el margen sera de 0px en la parte superior e inferior y 5px en los lados
+- background: white, el color de fondo sera blanco
+- border-radius: 50%, los bordes tendran una curvatura de 50% (seran circulares)
+*/
+
+.footer-redsocial{
+    padding: 15px;
+    margin: 0 5px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* 
+.icono-redsocial
+- width: 25px, el ancho de los iconos sera de 25px
+*/
+
+.icono-redsocial{
+    width: 25px;
+}
+
+/* 
+.fondo-facebook
+
+- transition: background-color 0.3s ease-in-out, la transicion sera de 0.3 segundos y el color de fondo cambiara al pasar el mouse
+*/
+
+.fondo-facebook{
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* 
+.facebook
+
+- transition: transform 0.3s, filter 0.3s, la transicion sera de 0.3 segundos y el color de fondo cambiara al pasar el mouse
+*/
+
+.facebook{
+    transition: transform 0.3s, filter 0.3s;
+}
+
+/*
+.fondo-facebook:hover
+
+- background-color: #0165E1, el color de fondo sera azul al pasar el mouse
+*/
+
+.fondo-facebook:hover{
+    background-color: #0165E1;
+}
+
+/*
+.fondo-facebook:hover .facebook
+
+- filter: brightness(0) invert(1), el color de la imagen sera blanco al pasar el mouse
+*/
+
+.fondo-facebook:hover .facebook{
+    filter: brightness(0) invert(1);
+}
+
+/* Instagram */
+
+/*
+.fondo-instagram
+
+- transition: background-color 0.3 ease-in-out, la transicion sera de 0.3 segundos y el color de fondo cambiara al pasar el mouse
+*/
+.fondo-instagram{
+    transition: background-color 0.3s ease-in-out;
+}
+
+/*
+.instagram
+
+- transition: transform 0.3s, filter 0.3s, la transicion sera de 0.3 segundos y el color de fondo cambiara al pasar el mouse
+*/
+
+.instagram{
+    transition: transform 0.3s, filter 0.3s;
+}
+
+/* 
+.fondo-instagram:hover
+
+- background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4), el color de fondo sera un degradado al pasar el mouse
+*/
+
+.fondo-instagram:hover{
+    background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
+}
+
+/*
+.fondo-instagram:hover .instagram
+
+- filter: brightness(0) invert(1), el color de la imagen sera blanco al pasar el mouse
+*/
+
+.fondo-instagram:hover .instagram{
+    filter: brightness(0) invert(1);
+}
+
+/* Twitter */
+
+/*
+.fondo.twitter
+
+- transition: background-color 0.3s ease-in-out, la transicion sera de 0.3 segundos y el color de fondo cambiara al pasar el mouse
+*/
+
+.fondo-twitter{
+    transition: background-color 0.3s ease-in-out;
+}
+
+/*
+.twitter
+
+- transition: transform 0.3s, filter 0.3s, la transicion sera de 0.3 segundos y el color de fondo cambiara al pasar el mouse
+*/
+
+.twitter{
+    transition: transform 0.3s, filter 0.3s;
+}
+
+/*
+.fondo-twitter:hover
+
+- background-color: black, el color de fondo sera negro cuando pase el mouse
+*/
+
+.fondo-twitter:hover{
+    background-color: black;
+}
+
+/*
+.fondo-twitter:hover .twitter
+
+- filter: brightness(0) invert(1), el fondo y la imagen cambiara de color cuadndo pase el mouse
+*/
+
+.fondo-twitter:hover .twitter{
+    filter: brightness(0) invert(1);
+}
+
+
+/* linkedin */
+
+/*
+.fondo-linkedin
+
+-transitiom: background-color 0.3s ease-in-out, tendra una transicion suave cuando se pase el mouse
+*/
+
+.fondo-linkedin{
+    transition: background-color 0.3s ease-in-out;
+}
+
+/*
+.linkedin
+
+- transition: transform 0.3s, filter 0.3s, la transition de la imagen sera suave 
+*/
+
+.linkedin{
+    transition: transform 0.3s, filter 0.3s;
+
+}
+
+/*
+.fondo-linkedin:hover
+
+- background-color: #0165e1, el fondo cambiara de color cuando pase el mouse 
+*/
+
+.fondo-linkedin:hover{
+    background-color: #0165E1;
+}
+
+/*
+.fondo-linkedin:hover .linkedin 
+
+- filter: brightness(0) invert(1), tanto el fondo y la imagen cambiara su filtro al mismo tiempo cuando pase el mouse
+*/
+
+.fondo-linkedin:hover .linkedin{
+    filter: brightness(0) invert(1);
+}
+
+/* ------- */
+
+/* Footer - ultimo */
+
+
+/* 
+footer
+
+- margin: 0, el margin de la etiqueta semantica sera del contenedor pirncipal sera de 0
+*/
+footer{
+    margin: 0;
+}
+
+/* 
+.footer-container
+Conetendor secundiario donde tiene los hipervinculos 
+
+- margin: 20px 20px, tiene un margin en todos los lados de 20px
+*/
+
+.footer-container{
+    margin: 20px 20px;
+}
+
+/* 
+.footer-footer-link
+
+-text-decoration: none, los hipervinculos no esta subrayado
+-color: black, el color de la letra es negra
+-font-family: 'Poppins', la fuente es de poppins
+-font-weight: 500, el estilo de la letra es 500 la cual seria medium
+-font-size: 15px, el tamaño de la letra es de 15px
+-margin: 10px 5px, tiene un margin de 10px top-bottom y 5px right-left
+-padding-right: 10px, su padding-right es de 10px para tener distancia entre las demas
+-border-right: solid 2px black, su border-right  tiene un groso de 2px y de color black
+*/
+
+.footer-footer-link{
+    text-decoration: none;
+    color: black;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 15px;
+    margin: 10px 5px;
+    padding-right: 10px;
+    border-right: solid 2px black;
+}
+
+/*
+.footer-footer-text
+Texto de la fuente de agua sobre el nombre del proyecto
+
+-display: inline, tiene un display inline para poder manejaro en la misma fila que los link
+-float: right, esta al final de la fila en la parte derecha
+*/
+
+.footer-footer-text{
+    display: inline;
+    float: right;
+}

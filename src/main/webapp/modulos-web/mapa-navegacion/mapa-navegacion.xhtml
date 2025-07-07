@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de Navegación</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  
+
+  <!-- Tu hoja de estilos -->
+  <h:outputStylesheet library="css" name="mapa-navegacion_style.css" />
+</h:head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navegacion-sections">
+      <div class="container-fluid navegacion-sections">
+        <a class="navbar-brand" href="#"><img src="img/logo sbr.png" alt="Logo" class="logo-principal" />Sabor Bajo El Radar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-final" id="navbarScroll">
+          <ul class="navbar-nav my-2 my-lg-2 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item link-header"><a class="nav-link" aria-current="page" href="#">Inicio</a></li>
+            <li class="nav-item link-header dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nosotros</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Quienes somos</a></li>
+                <li><a class="dropdown-item" href="#">Como Funciona</a></li>
+                <li><a class="dropdown-item" href="#">Equipo</a></li>
+              </ul>
+            </li>
+            <li class="nav-item link-header"><a class="nav-link" href="#">Contacto</a></li>
+            <li class="nav-item link-header"><a class="nav-link" href="#" id="comunidad"> Unete a nuestra comunidad</a></li>
+            <li class="nav-item link-header"><a class="nav-link" href="#" id="login"> Iniciar Sesion</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container py-5">
+      <h1 class="text-center titulo mb-5">&#x1F5FA;&#xFE0F; Mapa de Navegaci&oacute;n</h1>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="nodo">
+            <div class="icono"><i class="fas fa-home"></i></div>
+            <a href="/index.html"><h5>Inicio</h5></a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nodo">
+            <div class="icono"><i class="fas fa-users"></i></div>
+            <h5>Nosotros</h5>
+            <ul>
+              <li><a href="#quienes-somos">&#191;Qui&eacute;nes somos?</a></li>
+              <li><a href="#como-funciona">C&oacute;mo funciona</a></li>
+              <li><a href="#equipo">Equipo</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nodo">
+            <div class="icono"><i class="fas fa-user-plus"></i></div>
+            <a href="/Unete a nosotros/comunidad.html"><h5>&Uacute;nete a nuestra comunidad</h5></a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nodo">
+            <div class="icono"><i class="fas fa-sign-in-alt"></i></div>
+            <h5>Iniciar sesi&oacute;n</h5>
+            <ul>
+              <li><a href="#login">Ingresar</a></li>
+              <li><a href="#registro">Registrarse</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nodo">
+            <div class="icono"><i class="fas fa-headset"></i></div>
+            <h5>Soporte</h5>
+            <ul>
+              <li><a href="#contacto">Contacto PQRS</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nodo">
+            <div class="icono"><i class="fas fa-file-contract"></i></div>
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="#privacidad">Pol&iacute;tica de privacidad</a></li>
+              <li><a href="#terminos">T&eacute;rminos y condiciones</a></li>
+              <li><a href="/Mapa de navegacion/mapa-navegacion.html">Mapa de navegaci&oacute;n</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <section class="footer">
+      <div class="container text-center">
+        <div class="row align-items-center">
+          <div class="col">
+            <p class="footer-titulo">Nosotros</p>
+            <div class="footer-text">
+              <a href="" class="footer-text">Quienes somos</a>
+              <a href="" class="footer-text">Equipo</a>
+              <a href="" class="footer-text">Testimonios</a>
+            </div>
+          </div>
+          <div class="col">
+            <p class="footer-titulo">Soporte</p>
+            <div class="footer-text">
+              <a href="" class="footer-text">Contactanos</a>
+              <a href="" class="footer-text">PQRS</a>
+              <a href="" class="footer-text">FAQ</a>
+            </div>
+          </div>
+          <div class="col">
+            <img src="img/logo sbr.png" alt="" class="footer-logo" />
+          </div>
+          <div class="col">
+            <p class="footer-titulo">Plataformas</p>
+            <a href=""><img src="img/playstore.png" alt="" class="playstore" /></a>
+            <a href=""><img src="img/appstore.png" alt="" class="appstore" /></a>
+          </div>
+          <div class="col">
+            <p class="footer-titulo">Redes sociales</p>
+            <div class="footer-container-redsocial">
+              <a href="" class="footer-redsocial fondo-facebook"><img src="img/facebook.png" class="icono-redsocial facebook" alt="" /></a>
+              <a href="" class="footer-redsocial fondo-instagram"><img src="img/instagram.png" class="icono-redsocial instagram" alt="" /></a>
+              <a href="" class="footer-redsocial fondo-twitter"><img src="img/twitter.png" class="icono-redsocial twitter" alt="" /></a>
+              <a href="" class="footer-redsocial fondo-linkedin"><img src="img/linkedin.png" class="icono-redsocial linkedin" alt="" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div>
+      <div class="footer-container">
+        <a href="" class="footer-footer-link">Politica de privacidad</a>
+        <a href="" class="footer-footer-link">Terminos y codiciones</a>
+        <a href="" class="footer-footer-link">Mapa de navegacion</a>
+        <p class="footer-footer-text">&copy; 2023 Sabor Bajo El Radar. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
+
