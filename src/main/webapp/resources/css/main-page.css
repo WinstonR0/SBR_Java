@@ -15,7 +15,6 @@
 
 .link-header{
     margin: 0 10px;
-    
 }
 
 
@@ -23,7 +22,7 @@
 .nav-link:hover{
     background: #ffaa16;
     color: white;
-    border-radius: 10px;
+    border-radius: 12px;
     font-weight: bold;
 }
 
@@ -31,7 +30,7 @@
     background: #2289e6;
     color: white;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 30px;
 }
 
 #login{

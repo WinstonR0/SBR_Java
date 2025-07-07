@@ -27,7 +27,8 @@ body {
 
 h1 {
   font-weight: bold;
-  margin: 0;
+  margin: 5px;
+  font-size: 22px;
 }
 
 p {
@@ -61,7 +62,8 @@ a {
   overflow: hidden;
   width: 768px;
   max-width: 100%;
-  min-height: 480px;
+  height: 100%;
+  margin-top: 100px;
 }
 
 .form-container form {
@@ -78,10 +80,22 @@ a {
   text-align: center;
   
   /* AGREGADO PARA SCROLL */
-  overflow-y: auto;
-  max-height: 100%;
+  overflow-y: scroll;
   scroll-behavior: smooth;
-  
+ 
+}
+
+.input{
+    height: 10px !important;
+}
+
+.registro{
+    font-size: 14px;
+}
+
+.texto{
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .social-container {
@@ -128,7 +142,6 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-
 }
 
 .botoncito:active {

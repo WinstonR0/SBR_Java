@@ -18,42 +18,42 @@
             <div class="form-container sign-up-container">
                 <h:form>
                     <h1>Crea tu Cuenta</h1>
-                    <span>Usa tu correo para registrarte</span>
+                    <div class="registro">
+                        <h:outputLabel for="nombres" value="Nombre" styleClass="texto"/>
+                        <h:inputText id="nombres" value="#{usersController.user.nombres}" required="true" styleClass="campo-input"/>
+                        <h:message for="nombres" style="color: red"/>
 
-                    <h:outputLabel for="nombres" value="Nombres" />
-                    <h:inputText id="nombres" value="#{usersController.user.nombres}" required="true" />
-                    <h:message for="nombres" style="color: red"/>
+                        <h:outputLabel for="apellidos" value="Apellido" styleClass="texto"/>
+                        <h:inputText id="apellidos" value="#{usersController.user.apellidos}" required="true" styleClass="campo-input"/>
+                        <h:message for="apellidos" style="color: red"/>
 
-                    <h:outputLabel for="apellidos" value="Apellidos" />
-                    <h:inputText id="apellidos" value="#{usersController.user.apellidos}" required="true" />
-                    <h:message for="apellidos" style="color: red"/>
-                    
-                    <h:outputLabel for="documento" value="Documento" />
-                    <h:inputText id="documento" value="#{usersController.user.documento}" required="true" />
-                    <h:message for="documento" style="color: red"/>
-                    
-                    <h:outputLabel for="telefono" value="Telefono" />
-                    <h:inputText id="telefono" value="#{usersController.user.telefono}" required="true" />
-                    <h:message for="telefono" style="color: red"/>
-                    
+                        <h:outputLabel for="documento" value="Documento" styleClass="texto"/>
+                        <h:inputText id="documento" value="#{usersController.user.documento}" required="true" styleClass="campo-input"/>
+                        <h:message for="documento" style="color: red"/>
 
-                    <h:outputLabel for="correo" value="Correo" />
-                    <h:inputText id="correo" value="#{usersController.user.correo}" required="true" />
-                    <h:message for="correo" style="color: red"/>
+                        <h:outputLabel for="telefono" value="Telefono" styleClass="texto"/>
+                        <h:inputText id="telefono" value="#{usersController.user.telefono}" required="true" styleClass="campo-input"/>
+                        <h:message for="telefono" style="color: red"/>
 
-                    <h:outputLabel for="contrasena" value="Contraseña" />
-                    <h:inputSecret id="contrasena" value="#{usersController.user.contrasena}" required="true" />
-                    <h:message for="contrasena" style="color: red"/>
 
-                    <h:outputLabel for="rol" value="Selecciona tu rol" />
-                    <h:selectOneMenu id="rol" value="#{usersController.user.rol}" required="true">
-                        <f:selectItem itemLabel="-- Selecciona un rol --" itemValue="" />
-                        <f:selectItems value="#{usersController.rolesDisponibles}" var="rol" itemValue="#{rol}" itemLabel="#{rol}" />
-                    </h:selectOneMenu>
-                    <h:message for="rol" style="color: red"/>
+                        <h:outputLabel for="correo" value="Correo" styleClass="texto"/>
+                        <h:inputText id="correo" value="#{usersController.user.correo}" required="true" styleClass="campo-input"/>
+                        <h:message for="correo" style="color: red"/>
 
-                    <h:commandButton value="Registrar" actionListener="#{usersController.crearP2}" styleClass="boton" />
-                    <h:messages globalOnly="true" />
+                        <h:outputLabel for="contrasena" value="Contraseña" styleClass="texto"/>
+                        <h:inputSecret id="contrasena" value="#{usersController.user.contrasena}" required="true" styleClass="campo-input"/>
+                        <h:message for="contrasena" style="color: red"/>
+
+                        <h:outputLabel for="rol" value="Selecciona tu rol" />
+                        <h:selectOneMenu id="rol" value="#{usersController.user.rol}" required="true">
+                            <f:selectItem itemLabel="-- Selecciona un rol --" itemValue="" />
+                            <f:selectItems value="#{usersController.rolesDisponibles}" var="rol" itemValue="#{rol}" itemLabel="#{rol}"/>
+                        </h:selectOneMenu>
+                        <h:message for="rol" style="color: red"/>
+
+                        <h:commandButton value="Registrar" actionListener="#{usersController.crearP2}" styleClass="botoncito"/>
+                        <h:messages globalOnly="true" />
+                    </div>
                 </h:form>
             </div>
 
@@ -61,11 +61,11 @@
             <div class="form-container sign-in-container">
                 <h:form>
 
-                    <h:outputLabel value="Ususario: " for="idUsu" />
+                    <h:outputLabel value="Ususario: " for="idUsu" styleClass="texto"/>
                     <h:inputText value="#{login.usuario}" id="idUsu" required="true" requiredMessage="Este campo es obligatorio" styleClass="campo-input"/>
                     <h:message for="idUsu" style="color: red" />
 
-                    <h:outputLabel value="Contrasena: " for="idContra"/>
+                    <h:outputLabel value="Contrasena: " for="idContra" styleClass="texto"/>
                     <h:inputSecret value="#{login.contrasena}" id="idContra" required="true" requiredMessage="Este campo es obligatorio" styleClass="campo-input"/>
                     <h:message for="idContra" style="color: red" />
 

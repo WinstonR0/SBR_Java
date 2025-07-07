@@ -1,72 +1,40 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="./../users.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <body>
+    <ui:define name="content">
 
-        <ui:composition template="./../users.xhtml">
-
-            <ui:define name="content">
-
-                <f:view>
+        <div class="regis-usuarios">
+            <h:form>
+                <h1><h:outputText value="Registrar un usuario"/></h1>
 
 
-                    <h:form>
-                        <h1><h:outputText value="Create/Edit"/></h1>
-                        <h:panelGrid columns="2">
-                            <h:outputLabel value="Id:" for="id" />
-                            <h:inputText id="id" value="#{usersController.user.id}" title="Id" required="true" requiredMessage="The Id field is required." disabled="#{usersController.user.id != null }"/>
-                            <h:outputLabel value="Nombres:" for="nombres" />
-                            <h:inputText id="nombres" value="#{usersController.user.nombres}" title="Nombres" required="true" requiredMessage="The Nombres field is required."/>
-                            <h:outputLabel value="Apellidos:" for="apellidos" />
-                            <h:inputText id="apellidos" value="#{usersController.user.apellidos}" title="Apellidos" required="true" requiredMessage="The Apellidos field is required."/>
-                            <h:outputLabel value="Documento:" for="documento" />
-                            <h:inputText id="documento" value="#{usersController.user.documento}" title="Documento" required="true" requiredMessage="The Documento field is required."/>
-                            <h:outputLabel value="Telefono:" for="telefono" />
-                            <h:inputText id="telefono" value="#{usersController.user.telefono}" title="Telefono" required="true" requiredMessage="The Telefono field is required.">
-                            </h:inputText>
-                            <h:outputLabel value="Correo:" for="correo" />
-                            <h:inputText id="correo" value="#{usersController.user.correo}" title="Correo" required="true" requiredMessage="The Correo field is required."/>
-                            <h:outputLabel value="Contrasena:" for="contrasena" />
-                            <h:inputText id="contrasena" value="#{usersController.user.contrasena}" title="Contrasena" required="true" requiredMessage="The Contrasena field is required."/>
-                            <h:outputLabel value="Rol:" for="rol" />
-                            <h:inputText id="rol" value="#{usersController.user.rol}" title="Rol" required="true" requiredMessage="The Rol field is required." disabled="#{usersController.user.id != null}"/>
-                            <!--<h:outputLabel value="FechaRegistro:" for="fechaRegistro" />
-                              <h:inputText id="fechaRegistro" value="#{usersController.user.fechaRegistro}" title="FechaRegistro" >
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>-->
-                            <!-- <h:outputLabel value="Vendedor:" for="vendedor" />
-                            <h:selectOneMenu id="vendedor" value="#{usersController.user.vendedor}" title="Vendedor" >
-                                
-                                <f:selectItems value="#{fixme}"/>
-                            </h:selectOneMenu>
-                            <h:outputLabel value="Domiciliario:" for="domiciliario" />
-                            <h:selectOneMenu id="domiciliario" value="#{usersController.user.domiciliario}" title="Domiciliario" >
-                                
-                                <f:selectItems value="#{fixme}"/>
-                            </h:selectOneMenu>
-                            <h:outputLabel value="Cliente:" for="cliente" />
-                            <h:selectOneMenu id="cliente" value="#{usersController.user.cliente}" title="Cliente" >
-                                
-                                <f:selectItems value="#{usersController.listaClientes}"/>
-                            </h:selectOneMenu>-->
-                        </h:panelGrid>
-                        <h:form>
-                            <h:messages id="mensajes" globalOnly="tue" infoStyle="color: green" errorStyle="color: red"/>
-                            <h:commandButton value="Guardar" actionListener="#{usersController.crearP2()}" rendered="#{usersController.user.id == null}"/>
-                            <h:commandButton value="Editar" actionListener="#{usersController.editarUsuario2()}" rendered="#{usersController.user.id != null }" />
-                            <h:button value="Volver a ver usuarios" outcome="/views/usuarios-admin/index_u.xhtml" />
-                        </h:form>
-                    </h:form>
-                </f:view>
+                <h:panelGrid columns="2" styleClass="mi-panel">
+                    <h:outputLabel value="Id:" for="id" styleClass="texto"/>
+                    <h:inputText id="id" value="#{usersController.user.id}" disabled="#{usersController.user.id != null}" styleClass="input"/>
 
+                    <h:outputLabel value="Nombres:" for="nombres" styleClass="texto"/>
+                    <h:inputText id="nombres" value="#{usersController.user.nombres}" required="true" styleClass="input"/>
 
-            </ui:define>
+                    <h:outputLabel value="Apellidos:" for="apellidos" styleClass="texto"/>
+                    <h:inputText id="apellidos" value="#{usersController.user.apellidos}" required="true" styleClass="input"/>
 
-        </ui:composition>
+                    <h:outputLabel value="Correo:" for="correo" styleClass="texto"/>
+                    <h:inputText id="correo" value="#{usersController.user.correo}" required="true" styleClass="input"/>
 
-    </body>
-</html>
+                    <h:outputLabel value="Rol:" for="rol" styleClass="texto"/>
+                    <h:inputText id="rol" value="#{usersController.user.rol}" required="true" disabled="#{usersController.user.id != null}" styleClass="input"/>
+                </h:panelGrid>
+
+                <h:messages globalOnly="true" infoStyle="color:green" errorStyle="color:red"/>
+
+                <h:commandButton value="Guardar" actionListener="#{usersController.crearP2()}" rendered="#{usersController.user.id == null}" styleClass="botoncito"/>
+                <h:commandButton value="Editar" actionListener="#{usersController.editarUsuario2()}" rendered="#{usersController.user.id != null}" styleClass="botoncito"/>
+                <h:button value="Volver a la lista" outcome="/views/usuarios-admin/index_u.xhtml" styleClass="botoncito-azul"/>
+            </h:form>
+        </div>
+
+    </ui:define>
+</ui:composition>
