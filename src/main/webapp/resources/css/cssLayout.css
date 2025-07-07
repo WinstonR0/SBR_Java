@@ -103,14 +103,13 @@
   font-weight: bold;
 }
 
-.botoncito {
-  background-color: #4caf50;
-  color: white;
-}
 
-.botoncito-azul {
-  background-color: #2196f3;
-  color: white;
+
+.form-vendedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 .botoncito:hover {
@@ -140,6 +139,14 @@
     margin-left: 120px;
     width: auto;
     height: 100%;
+}
+
+.input-vendedor{
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 

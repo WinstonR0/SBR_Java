@@ -11,31 +11,33 @@
             <ui:define name="content">
                 <h1>#{productoController.editando ? 'Editar producto' : 'Registrar nuevo producto'}</h1>
 
-                <h:form>
-                    <h:panelGrid columns="2">
-                        <h:outputLabel value="Nombre:" />
-                        <h:inputText value="#{productoController.producto.nombre}" required="true" />
+                <h:form class="form-vendedor">
+                    <h:panelGrid columns="2" styleClass="mi-panel">
+                        <h:outputLabel value="Nombre:" styleClass="texto"/>
+                        <h:inputText value="#{productoController.producto.nombre}" required="true" styleClass="input-vendedor"/>
 
-                        <h:outputLabel value="Descripción:" />
-                        <h:inputTextarea value="#{productoController.producto.descripcion}" required="true" />
+                        <h:outputLabel value="Descripción:" styleClass="texto"/>
+                        <h:inputTextarea value="#{productoController.producto.descripcion}" required="true" styleClass="input-vendedor"/>
 
-                        <h:outputLabel value="Precio:" />
-                        <h:inputText value="#{productoController.producto.precio}" required="true" />
+                        <h:outputLabel value="Precio:" styleClass="texto"/>
+                        <h:inputText value="#{productoController.producto.precio}" required="true" styleClass="input-vendedor"/>
 
-                        <h:outputLabel value="Stock:" />
-                        <h:inputText value="#{productoController.producto.stock}" required="true" />
+                        <h:outputLabel value="Stock:" styleClass="texto"/>
+                        <h:inputText value="#{productoController.producto.stock}" required="true" styleClass="input-vendedor"/>
 
-                        <h:outputLabel value="Categoría:" />
-                        <h:inputText value="#{productoController.producto.categoria}" required="true" />
+                        <h:outputLabel value="Categoría:" styleClass="texto"/>
+                        <h:inputText value="#{productoController.producto.categoria}" required="true" styleClass="input-vendedor"/>
                     </h:panelGrid>
 
-                    <h:commandButton value="#{productoController.editando ? 'Guardar cambios' : 'Guardar producto'}" action="#{productoController.guardarProducto}" />
+                    <h:commandButton value="#{productoController.editando ? 'Guardar cambios' : 'Guardar producto'}" action="#{productoController.guardarProducto}" styleClass="botoncito"/>
 
                     <h:messages globalOnly="true" />
-                </h:form>
-                <h:form>
+                    
+                    <h:form>
                     <h:commandLink value="← Volver al panel" action="index_vendedor.xhtml?faces-redirect=true" />
                 </h:form>
+                </h:form>
+                
             </ui:define>
 
         </ui:composition>
